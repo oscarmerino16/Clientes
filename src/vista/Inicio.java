@@ -6,6 +6,7 @@
 package vista;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import modelo.CLientes;
 
 /**
@@ -19,7 +20,9 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        ArrayList CLientes= new ArrayList();
+        vCLientes=controlador.IODatos.cargarClientes();
+        escribirArray();
+        setIconImage(new ImageIcon(getClass().getResource("/Imagenes/2.png")).getImage());
     }
 
     /**
@@ -53,6 +56,7 @@ public class Inicio extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -215,12 +219,23 @@ public class Inicio extends javax.swing.JFrame {
         
         vCLientes.add(c);
         
+        controlador.IODatos.guardarDatos(vCLientes);
+        
+        jTextArea1.setText(jTextArea1.getText() + "\n" + vCLientes.toString() ); 
+        
     }//GEN-LAST:event_jButtonGuardarMouseClicked
 
+        public void escribirArray() {
+        for (CLientes c : vCLientes) {
+            jTextArea1.setText(jTextArea1.getText()+ "\n" +c.toString());
+        }
+    }
+    
     private void jButtonSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSalirMouseClicked
         this.dispose();
     }//GEN-LAST:event_jButtonSalirMouseClicked
 
+  
     /**
      * @param args the command line arguments
      */
