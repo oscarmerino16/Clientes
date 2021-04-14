@@ -226,8 +226,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuardarMouseClicked
 
         public void escribirArray() {
-        for (CLientes c : vCLientes) {
-            jTextArea1.setText(jTextArea1.getText()+ "\n" +c.toString());
+        for (CLientes vCLientes : vCLientes) {
+            jTextArea1.setText(jTextArea1.getText()+ "\n" +vCLientes.toString());
         }
     }
     
